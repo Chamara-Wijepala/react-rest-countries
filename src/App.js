@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Header from "./Pages/Header";
 import Home from "./Pages/Home";
 import Details from "./Pages/Details";
+import fetchCountries from "./Helpers/fetchCountries";
 
 const App = () => {
   const [ countries, setCountries ] = useState([]);
@@ -10,12 +11,11 @@ const App = () => {
   // Fetch data of all countries after first render and store data in state
   useEffect(() => {(
     async () => {
-      const request = await fetch('https://restcountries.com/v3.1/all');
-      const response = await request.json()
+      const response = await fetchCountries();
 
       setCountries(response);
     }
-  )()}, [])
+  )()}, []);
 
   return (
     <>
