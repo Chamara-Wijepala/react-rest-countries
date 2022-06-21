@@ -1,4 +1,4 @@
-const fetchCountries = async (region) => {
+const fetchCountries = async () => {
   // An array of fields to filter out returned JSON data. More fields can be
   // added as needed
   const fieldsArray = [
@@ -17,13 +17,7 @@ const fetchCountries = async (region) => {
   ];
   const fieldsFilter = fieldsArray.join(',');
 
-  // Filters returned JSON depending on region
-  let regionFilter = '';
-  region === 'all'
-    ? regionFilter = region
-    : regionFilter = `region/${region}`;
-
-  const request = await fetch(`https://restcountries.com/v3.1/${regionFilter}?fields=${fieldsFilter}`);
+  const request = await fetch(`https://restcountries.com/v3.1/all?fields=${fieldsFilter}`);
   const response = await request.json();
 
   return response;

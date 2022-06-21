@@ -4,22 +4,40 @@ import RenderForm from "../Components/RenderForm";
 import RenderCountries from "../Components/RenderCountries";
 
 const Home = () => {
-  const [ countries, setCountries ] = useState([]);
+  const [ allCountries, setAllCountries ] = useState([]);
+  const [ countryList, setCountryList ] = useState([]);
   const [ state, setState ] = useState({
     searchQuery: '',
-    region: 'all'
+    region: ''
   });
 
-  // Fetches data of all countries depending on region and store data in state
-  // Initially fetches all countries, then fetches again when a different
-  // region is selected
+  // Fetches data of all countries and store data in state to reduce API calls
   useEffect(() => {(
     async () => {
-      const response = await fetchCountries(state.region);
+      const response = await fetchCountries();
 
-      setCountries(response);
+      setAllCountries(response);
+      setCountryList(response);
     }
-  )()}, [state.region]);
+  )()}, []);
+  
+  // Filters countries based on user input
+  useEffect(() => {
+    // Checks if selected region matches state.region AND if common OR official
+    // country names match state.searchQuery
+    const filteredCountries = allCountries.filter((country) => {
+      return (country.region.includes(
+          state.region
+        )) && ((country.name.common.toLowerCase().includes(
+          state.searchQuery.toLowerCase().trim()
+        )) || (country.name.official.toLowerCase().includes(
+          state.searchQuery.toLowerCase().trim()
+        )));
+    });
+
+    // Mutates countryList state while keeping allCountries state intact
+    setCountryList(filteredCountries);
+  }, [state, allCountries]);
 
   // Handles state change for both inputs
   const handleChange = (event) => {
@@ -31,24 +49,8 @@ const Home = () => {
     });
   }
 
-  // Handles submit for search input
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    // Filters countries by checking if the country's common or official name
-    // includes at least a part of the searchQuery
-    const filteredCountries = countries.filter((country) => {
-      return (country.name.common.toLowerCase().includes(
-        state.searchQuery.toLowerCase().trim()
-      )) || (country.name.official.toLowerCase().includes(
-        state.searchQuery.toLowerCase().trim()
-      ));
-    });
-
-    // Prevent replacing countries state with empty array
-    if (filteredCountries.length > 0) {
-      setCountries(filteredCountries);
-    }
   }
 
   return (
@@ -56,9 +58,8 @@ const Home = () => {
       <div className="SearchFilter">
         <RenderForm {...{state, handleChange, handleSubmit}} />
       </div>
-
       <div className="CountryList">
-        <RenderCountries countries={countries} />
+        <RenderCountries countries={countryList} />
       </div>
     </>
   )
