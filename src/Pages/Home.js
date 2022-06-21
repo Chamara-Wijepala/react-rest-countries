@@ -43,7 +43,10 @@ const Home = () => {
       );
     });
 
-    setCountries(filteredCountries);
+    // Prevent replacing countries state with empty array
+    if (filteredCountries.length > 0) {
+      setCountries(filteredCountries);
+    }
   }
 
   return (
