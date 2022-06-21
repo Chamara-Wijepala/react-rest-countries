@@ -35,12 +35,14 @@ const Home = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Filters countries by checking if the country's official name includes
-    // at least a part of the searchQuery
+    // Filters countries by checking if the country's common or official name
+    // includes at least a part of the searchQuery
     const filteredCountries = countries.filter((country) => {
-      return country.name.official.toLowerCase().includes(
+      return (country.name.common.toLowerCase().includes(
         state.searchQuery.toLowerCase().trim()
-      );
+      )) || (country.name.official.toLowerCase().includes(
+        state.searchQuery.toLowerCase().trim()
+      ));
     });
 
     // Prevent replacing countries state with empty array
