@@ -5,6 +5,7 @@ import fetchCountries from "../Helpers/fetchCountries";
 const Home = () => {
   const [ countries, setCountries ] = useState([]);
   const [ state, setState ] = useState({
+    searchQuery: '',
     region: 'all'
   });
 
@@ -29,10 +30,33 @@ const Home = () => {
     });
   }
 
+  // Handles submit for search input
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    // Filters countries by checking if the country's official name includes
+    // at least a part of the searchQuery
+    const filteredCountries = countries.filter((country) => {
+      return country.name.official.toLowerCase().includes(
+        state.searchQuery.toLowerCase().trim()
+      );
+    });
+
+    setCountries(filteredCountries);
+  }
+
   return (
     <>
       <div className="SearchFilter">
-        <form>
+        <form onSubmit={handleSubmit}>
+          <input
+            name="searchQuery"
+            value={state.searchQuery}
+            onChange={handleChange}
+            type="text"
+            placeholder="Search for a country..."
+          ></input>
+
           <select name="region" value={state.region} onChange={handleChange}>
             <option value="all">All</option>
             <option value="africa">Africa</option>
