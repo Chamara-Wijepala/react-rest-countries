@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { GoChevronDown } from "react-icons/go"
 
 const Dropdown = ({ handleClick, options }) => {
   const [ isActive, setIsActive ] = useState(false);
@@ -7,9 +8,15 @@ const Dropdown = ({ handleClick, options }) => {
   return (
     <div className="Dropdown">
 
-      <div className="DropdownBtn" onClick={() => {
-        setIsActive(!isActive);
-      }}>{selected || 'Filter By Region'}</div>
+      <div
+        className="DropdownBtn"
+        onClick={() => {
+          setIsActive(!isActive);
+        }}
+      >
+        {selected || 'Filter By Region'}
+        <GoChevronDown/>
+      </div>
 
       {isActive && (
         <div className="DropdownContent">
