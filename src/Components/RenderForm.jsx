@@ -1,3 +1,5 @@
+import { BiSearchAlt2 } from 'react-icons/bi';
+
 import Dropdown from "./Dropdown";
 
 const RenderForm = ({ state, handleChange, handleClick, handleSubmit }) => {
@@ -12,13 +14,16 @@ const RenderForm = ({ state, handleChange, handleClick, handleSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        name="searchQuery"
-        value={state.searchQuery}
-        onChange={handleChange}
-        type="text"
-        placeholder="Search for a country..."
-      ></input>
+      <div>
+        <BiSearchAlt2/>
+        <input
+          name="searchQuery"
+          value={state.searchQuery}
+          onChange={handleChange}
+          type="text"
+          placeholder="Search for a country..."
+        ></input>
+      </div>
 
       <Dropdown {...{handleClick, options}} />
     </form>
