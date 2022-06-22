@@ -1,4 +1,15 @@
-const RenderForm = ({ state, handleChange, handleSubmit }) => {
+import Dropdown from "./Dropdown";
+
+const RenderForm = ({ state, handleChange, handleClick, handleSubmit }) => {
+  const options = [
+    'All',
+    'Africa',
+    'Americas',
+    'Asia',
+    'Europe',
+    'Oceania',
+  ]
+
   return (
     <form onSubmit={handleSubmit}>
       <input
@@ -9,14 +20,7 @@ const RenderForm = ({ state, handleChange, handleSubmit }) => {
         placeholder="Search for a country..."
       ></input>
 
-      <select name="region" value={state.region} onChange={handleChange}>
-        <option value="">All</option>
-        <option value="Africa">Africa</option>
-        <option value="Americas">Americas</option>
-        <option value="Asia">Asia</option>
-        <option value="Europe">Europe</option>
-        <option value="Oceania">Oceania</option>
-      </select>
+      <Dropdown {...{handleClick, options}} />
     </form>
   )
 }

@@ -40,13 +40,27 @@ const Home = () => {
     setCountryList(filteredCountries);
   }, [state, allCountries]);
 
-  // Handles state change for both inputs
+  // Handles input for searching by country name
   const handleChange = (event) => {
     const value = event.target.value;
 
     setState({
       ...state,
-      [event.target.name]: value
+      searchQuery: value
+    });
+  }
+
+  // Handles input for region filter
+  const handleClick = (event) => {
+    const text = event.target.textContent;
+
+    // Declares value variable and assigns it the value of text IF text doesn't
+    // have the value of 'All
+    const value = text !== 'All' ? text : '';
+
+    setState({
+      ...state,
+      region: value
     });
   }
 
@@ -57,7 +71,7 @@ const Home = () => {
   return (
     <>
       <div className="SearchFilter">
-        <RenderForm {...{state, handleChange, handleSubmit}} />
+        <RenderForm {...{state, handleChange, handleClick, handleSubmit}} />
       </div>
       <div className="CountryList">
         {countryList.length > 0
