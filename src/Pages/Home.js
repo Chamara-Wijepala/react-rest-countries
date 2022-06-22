@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import fetchCountries from "../Helpers/fetchCountries";
 import RenderForm from "../Components/RenderForm";
 import RenderCountries from "../Components/RenderCountries";
@@ -20,7 +21,7 @@ const Home = () => {
       setCountryList(response);
     }
   )()}, []);
-  
+
   // Filters countries based on user input
   useEffect(() => {
     // Checks if selected region matches state.region AND if common OR official
@@ -59,7 +60,10 @@ const Home = () => {
         <RenderForm {...{state, handleChange, handleSubmit}} />
       </div>
       <div className="CountryList">
-        <RenderCountries countries={countryList} />
+        {countryList.length > 0
+          ? <RenderCountries countries={countryList} />
+          : <h2>No matches found, try again</h2>
+        }
       </div>
     </>
   )
