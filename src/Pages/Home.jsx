@@ -1,26 +1,14 @@
 import { useState, useEffect } from "react";
 
-import fetchCountries from "../Helpers/fetchCountries";
 import RenderForm from "../Components/RenderForm";
 import RenderCountries from "../Components/RenderCountries";
 
-const Home = () => {
-  const [ allCountries, setAllCountries ] = useState([]);
-  const [ countryList, setCountryList ] = useState([]);
+const Home = ({ allCountries }) => {
+  const [ countryList, setCountryList ] = useState(allCountries);
   const [ state, setState ] = useState({
     searchQuery: '',
     region: ''
   });
-
-  // Fetches data of all countries and store data in state to reduce API calls
-  useEffect(() => {(
-    async () => {
-      const response = await fetchCountries();
-
-      setAllCountries(response);
-      setCountryList(response);
-    }
-  )()}, []);
 
   // Filters countries based on user input
   useEffect(() => {
