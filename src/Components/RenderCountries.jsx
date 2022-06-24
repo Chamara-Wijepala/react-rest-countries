@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 const RenderCountries = ({ countries }) => {
   return (
     // Maps through countries array and renders each country inside an anchor
     // tag which redirects to the country's specific details page
     countries.map((country, index) => (
-      <a key={index} href={`details/${country.cca3}`}>
+      <Link key={index} to={country.cca3}>
 
         <div className="Country">
           <div className="Flag">
@@ -24,9 +26,9 @@ const RenderCountries = ({ countries }) => {
           </div>
         </div>
 
-      </a>
+      </Link>
     ))
   )
 }
 
-export default RenderCountries
+export default RenderCountries;
