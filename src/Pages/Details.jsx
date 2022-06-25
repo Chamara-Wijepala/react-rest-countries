@@ -5,7 +5,7 @@ import RenderCountryDetails from "../Components/RenderCountryDetails";
 
 const Details = ({ allCountries }) => {
   const { id } = useParams();
-  const [ country, setCountry ] = useState(allCountries);
+  const [ currentCountry, setCurrentCountry ] = useState(allCountries);
   const [ borderCountries, setBorderCountries ] = useState([]);
 
   useEffect(() => {
@@ -20,14 +20,14 @@ const Details = ({ allCountries }) => {
       return filteredCountry[0].borders.includes(country.cca3);
     });
 
-    setCountry(filteredCountry);
+    setCurrentCountry(filteredCountry);
     setBorderCountries(filteredBorderCountries);
   }, [id, allCountries]);
 
   return (
     <>
-      {country.length > 0
-        ? <RenderCountryDetails countryArray={country}/>
+      {currentCountry.length > 0
+        ? <RenderCountryDetails countryArray={currentCountry}/>
         : <h2>Loading...</h2>
       }
     </>
