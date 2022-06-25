@@ -65,9 +65,11 @@ const CountryDetails = ({ country }) => {
         <div>
           <p className="BoldText">Border Countries: </p>
           <ul>
-            {country.borders.map((borderCountry, index) => (
-              <Link key={index} to={`/${borderCountry}`} replace>
-                <li>{borderCountry}</li>
+            {country.borders.map((country, index) => (
+              <Link key={index} to={`/${country.code}`} replace>
+                <li>
+                  {country.name}
+                </li>
               </Link>
             ))}
           </ul>

@@ -6,7 +6,6 @@ import RenderCountryDetails from "../Components/RenderCountryDetails";
 const Details = ({ allCountries }) => {
   const { id } = useParams();
   const [ currentCountry, setCurrentCountry ] = useState(allCountries);
-  const [ borderCountries, setBorderCountries ] = useState([]);
 
   useEffect(() => {
     // Filters out all countries except the country that's cca3 matches URL id
@@ -20,8 +19,17 @@ const Details = ({ allCountries }) => {
       return filteredCountry[0].borders.includes(country.cca3);
     });
 
+    // Creates an array of objects containing the name and cca3 of bordering
+    // countries. Creates an empty array if there are no bordering countries
+    const borders = filteredBorderCountries.map((country) => (
+      filteredCountry[0].borders.includes(country.cca3)
+        ? { "name": country.name.common, "code": country.cca3 }
+        : 'hi'
+    ));
+
+    filteredCountry[0].borders = borders;
+
     setCurrentCountry(filteredCountry);
-    setBorderCountries(filteredBorderCountries);
   }, [id, allCountries]);
 
   return (
