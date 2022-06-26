@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { PulseLoader } from "react-spinners";
 
 import RenderForm from "../Components/RenderForm";
 import RenderCountries from "../Components/RenderCountries";
 
 const Home = ({ allCountries }) => {
   const [ countryList, setCountryList ] = useState(allCountries);
+  const [ isLoading, setIsLoading ] = useState(true);
   const [ state, setState ] = useState({
     searchQuery: '',
     region: ''
@@ -26,6 +28,7 @@ const Home = ({ allCountries }) => {
 
     // Mutates countryList state while keeping allCountries state intact
     setCountryList(filteredCountries);
+    setIsLoading(false)
   }, [state, allCountries]);
 
   // Handles input for searching by country name
@@ -62,9 +65,9 @@ const Home = ({ allCountries }) => {
         <RenderForm {...{state, handleChange, handleClick, handleSubmit}} />
       </div>
       <div className="CountryList">
-        {countryList.length > 0
-          ? <RenderCountries countries={countryList} />
-          : <h2>No matches found, try again</h2>
+        {isLoading
+          ? <PulseLoader color="#36D7B7"/>
+          : <RenderCountries countries={countryList} />
         }
       </div>
     </>

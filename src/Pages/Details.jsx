@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { PulseLoader } from "react-spinners";
 
 import RenderCountryDetails from "../Components/RenderCountryDetails";
 
 const Details = ({ allCountries }) => {
   const { id } = useParams();
   const [ currentCountry, setCurrentCountry ] = useState(allCountries);
+  const [ isLoading, setIsLoading ] = useState(true);
 
   useEffect(() => {
     // Filters out all countries except the country that's cca3 matches URL id
@@ -35,13 +37,14 @@ const Details = ({ allCountries }) => {
     };
 
     setCurrentCountry(countryObject);
+    setIsLoading(false);
   }, [id, allCountries]);
 
   return (
     <>
-      {!Array.isArray(currentCountry)
-        ? <RenderCountryDetails country={currentCountry}/>
-        : <h2>Loading...</h2>
+      {isLoading
+        ? <PulseLoader color="#36D7B7"/>
+        : <RenderCountryDetails country={currentCountry}/>
       }
     </>
   )
