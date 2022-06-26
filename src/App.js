@@ -1,5 +1,6 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { PulseLoader } from "react-spinners";
 
 import fetchCountries from "./Helpers/fetchCountries";
 import Header from "./Pages/Header";
@@ -25,11 +26,12 @@ const App = () => {
       <BrowserRouter>
         <Header />
         <main>
-          {!isFetching &&
-            <Routes>
-              <Route path="/" element={<Home {...{allCountries}}/>}></Route>
-              <Route path="/:id" element={<Details {...{allCountries}}/>}></Route>
-            </Routes>
+          {!isFetching
+            ? <Routes>
+                <Route path="/" element={<Home {...{allCountries}}/>}></Route>
+                <Route path="/:id" element={<Details {...{allCountries}}/>}></Route>
+              </Routes>
+            : <PulseLoader color="#36D7B7"/>
           }
         </main>
       </BrowserRouter>
