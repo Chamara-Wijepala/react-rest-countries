@@ -8,6 +8,7 @@ import Details from "./Pages/Details";
 
 const App = () => {
   const [ allCountries, setAllCountries ] = useState([]);
+  const [isFetching, setIsFetching] = useState(true);
   
   // Fetches data of all countries and store data in state to reduce API calls
   useEffect(() => {(
@@ -15,6 +16,7 @@ const App = () => {
       const response = await fetchCountries();
 
       setAllCountries(response);
+      setIsFetching(false);
     }
   )()}, []);
 
@@ -23,10 +25,12 @@ const App = () => {
       <BrowserRouter>
         <Header />
         <main>
-          <Routes>
-            <Route path="/" element={<Home {...{allCountries}}/>}></Route>
-            <Route path="/:id" element={<Details {...{allCountries}}/>}></Route>
-          </Routes>
+          {!isFetching &&
+            <Routes>
+              <Route path="/" element={<Home {...{allCountries}}/>}></Route>
+              <Route path="/:id" element={<Details {...{allCountries}}/>}></Route>
+            </Routes>
+          }
         </main>
       </BrowserRouter>
     </>
