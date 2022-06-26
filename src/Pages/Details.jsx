@@ -24,7 +24,7 @@ const Details = ({ allCountries }) => {
     const borders = filteredBorderCountries.map((country) => (
       filteredCountry[0].borders.includes(country.cca3)
         ? { "name": country.name.common, "code": country.cca3 }
-        : 'hi'
+        : null
     ));
 
     filteredCountry[0].borders = borders;
