@@ -12,7 +12,7 @@ const Details = ({ allCountries }) => {
   useEffect(() => {
     // Filters out all countries except the country that's cca3 matches URL id
     const filteredCountry = allCountries.filter((country) => {
-      return country.cca3.includes(id)
+      return country.cca3.includes(id.toUpperCase());
     });
 
     // Similar to the logic above, it filters out all countries except the ones
