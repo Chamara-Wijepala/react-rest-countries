@@ -27,15 +27,20 @@ const Details = ({ allCountries }) => {
         : null
     ));
 
-    filteredCountry[0].borders = borders;
+    // Creates a new object with all properties from filteredCountry and adds
+    // new borders array to it
+    const countryObject = {
+      ...filteredCountry[0],
+      borders: borders
+    };
 
-    setCurrentCountry(filteredCountry);
+    setCurrentCountry(countryObject);
   }, [id, allCountries]);
 
   return (
     <>
-      {currentCountry.length > 0
-        ? <RenderCountryDetails countryArray={currentCountry}/>
+      {!Array.isArray(currentCountry)
+        ? <RenderCountryDetails country={currentCountry}/>
         : <h2>Loading...</h2>
       }
     </>

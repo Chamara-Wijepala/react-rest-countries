@@ -1,8 +1,6 @@
 import CountryDetails from "./CountryDetails";
 
-const RenderCountryDetails = ({ countryArray }) => {
-  const [ country ] = countryArray;
-
+const RenderCountryDetails = ({ country }) => {
   return (
     <div className="CountryDetails">
       <img
