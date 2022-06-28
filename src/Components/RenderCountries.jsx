@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const RenderCountries = ({ countries }) => {
   return (
@@ -9,7 +10,10 @@ const RenderCountries = ({ countries }) => {
 
         <div className="Country">
           <div className="Flag">
-            <img src={country.flags.svg} alt={`Flag of ${country.name.common}`}></img>
+            <LazyLoadImage
+              src={country.flags.svg}
+              alt={`Flag of ${country.name.common}`}
+            />
           </div>
         
           <div className="Info">
