@@ -70,7 +70,7 @@ const CountryDetails = ({ country }) => {
           <ul>
             {country.borders.map((country, index) => (
               <Link key={index} to={`/${country.code}`} replace>
-                <li>
+                <li className="BorderLink">
                   {country.name}
                 </li>
               </Link>

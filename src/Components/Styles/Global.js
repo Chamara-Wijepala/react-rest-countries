@@ -1,6 +1,19 @@
 import { createGlobalStyle } from "styled-components";
 
-const GlobalStyles = createGlobalStyle`
+export const lightTheme = {
+  background: '#fafafa',
+  text: '#111517',
+  element: '#fff',
+  input: '#858585',
+};
+
+export const darkTheme = {
+  background: '#202c37',
+  element: '#2b3945',
+  text: '#fff',
+};
+
+export const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
   :root {
@@ -20,9 +33,23 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
   }
 
+  main {
+    background-color: ${({ theme }) => theme.background};
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, a, img {
+    color: ${({ theme }) => theme.text};
+  }
+
+  .BorderLink {
+    background-color: ${({ theme }) => theme.element};
+  }
+
   .BoldText {
     font-weight: 600;
   }
-`
-
-export default GlobalStyles;
+`;

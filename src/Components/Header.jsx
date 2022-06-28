@@ -1,8 +1,11 @@
-const Header = () => {
+import { StyledHeader } from "./Styles/Header.style";
+
+const Header = ({ toggleTheme }) => {
   return (
-    <header>
+    <StyledHeader>
       <h1>Where in the world?</h1>
-    </header>
+      <button onClick={toggleTheme}>Change Theme</button>
+    </StyledHeader>
   );
 }
 
