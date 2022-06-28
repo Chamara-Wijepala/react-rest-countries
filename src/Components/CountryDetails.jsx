@@ -20,6 +20,8 @@ const CountryDetails = ({ country }) => {
   // Creates a string of the country's top level domain or domains
   const tld = country.tld.join(', ');
 
+  const numberFormat = new Intl.NumberFormat('en-US');
+
   return (
     <>
       <h2>{country.name.common}</h2>
@@ -29,7 +31,8 @@ const CountryDetails = ({ country }) => {
           <span className="BoldText">Native Name: </span> {nativeNames}
         </p>
         <p>
-          <span className="BoldText">Population: </span> {country.population}
+          <span className="BoldText">Population: </span>
+          {numberFormat.format(country.population)}
         </p>
         <p>
           <span className="BoldText">Region: </span> {country.region}
