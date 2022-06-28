@@ -6,10 +6,11 @@ import fetchCountries from "./Helpers/fetchCountries";
 import Header from "./Pages/Header";
 import Home from "./Pages/Home";
 import Details from "./Pages/Details";
+import GlobalStyles from "./Components/Styles/Global";
 
 const App = () => {
   const [ allCountries, setAllCountries ] = useState([]);
-  const [isFetching, setIsFetching] = useState(true);
+  const [ isFetching, setIsFetching ] = useState(true);
   
   // Fetches data of all countries and store data in state to reduce API calls
   useEffect(() => {(
@@ -23,6 +24,7 @@ const App = () => {
 
   return (
     <>
+      <GlobalStyles/>
       <BrowserRouter>
         <Header />
         <main>
