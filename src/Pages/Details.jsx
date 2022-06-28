@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { PulseLoader } from "react-spinners";
 
 import RenderCountryDetails from "../Components/RenderCountryDetails";
@@ -42,6 +42,9 @@ const Details = ({ allCountries }) => {
 
   return (
     <>
+      <Link to={'/'}>
+        <button>Back</button>
+      </Link>
       {isLoading
         ? <PulseLoader color="#36D7B7"/>
         : <RenderCountryDetails country={currentCountry}/>
