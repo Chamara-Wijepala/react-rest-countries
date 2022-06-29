@@ -33,7 +33,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
   }
 
-  main {
+  body {
     background-color: ${({ theme }) => theme.background};
   }
 
