@@ -35,7 +35,7 @@ const App = () => {
         <BrowserRouter>
           <Header toggleTheme={toggleTheme}/>
           <main>
-            <div class="MainContentWrapper">
+            <div className="MainContentWrapper">
               {!isFetching
                 ? <Routes>
                     <Route path="/" element={<Home {...{allCountries}}/>}></Route>
