@@ -35,13 +35,15 @@ const App = () => {
         <BrowserRouter>
           <Header toggleTheme={toggleTheme}/>
           <main>
-            {!isFetching
-              ? <Routes>
-                  <Route path="/" element={<Home {...{allCountries}}/>}></Route>
-                  <Route path="/:id" element={<Details {...{allCountries}}/>}></Route>
-                </Routes>
-              : <PulseLoader color="#36D7B7"/>
-            }
+            <div class="MainContentWrapper">
+              {!isFetching
+                ? <Routes>
+                    <Route path="/" element={<Home {...{allCountries}}/>}></Route>
+                    <Route path="/:id" element={<Details {...{allCountries}}/>}></Route>
+                  </Routes>
+                : <PulseLoader color="#36D7B7"/>
+              }
+            </div>
           </main>
         </BrowserRouter>
       </ThemeProvider>

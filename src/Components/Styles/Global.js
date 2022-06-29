@@ -52,4 +52,15 @@ export const GlobalStyles = createGlobalStyle`
   .BoldText {
     font-weight: 600;
   }
+
+  header,
+  main {
+    padding: 0 10px;
+  }
+
+  .HeaderContentWrapper, 
+  .MainContentWrapper {
+    max-width: 1440px;
+    margin: auto;
+  }
 `;
