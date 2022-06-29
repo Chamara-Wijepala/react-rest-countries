@@ -64,12 +64,10 @@ const Home = ({ allCountries }) => {
       <div className="SearchFilter">
         <RenderForm {...{state, handleChange, handleClick, handleSubmit}} />
       </div>
-      <div className="CountryList">
-        {isLoading
-          ? <PulseLoader color="#36D7B7"/>
-          : <RenderCountries countries={countryList} />
-        }
-      </div>
+      {isLoading
+        ? <PulseLoader color="#36D7B7"/>
+        : <RenderCountries countries={countryList} />
+      }
     </>
   )
 }
