@@ -19,7 +19,7 @@ const StyledCountryCard = styled.div`
 
     .CountryName {
       margin: .5rem 0;
-      font-size: 1.6rem;
+      font-size: 1.4rem;
     }
   }
 `;
