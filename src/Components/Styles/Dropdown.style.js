@@ -15,7 +15,7 @@ const StyledDropdown = styled.div`
   .DropdownBtn,
   .DropdownContent {
     padding: 1.4rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .1);
     cursor: pointer;
   }
   

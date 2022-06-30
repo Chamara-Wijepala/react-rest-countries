@@ -16,7 +16,7 @@ const StyledForm = styled.form`
     padding: 1rem 2rem;
     border-radius: 5px;
     width: clamp(300px, 50vw, 500px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .1);
 
     input {
       background-color: inherit;

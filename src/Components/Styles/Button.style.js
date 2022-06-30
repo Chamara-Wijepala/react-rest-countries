@@ -13,7 +13,7 @@ export const StyledButton = styled.button`
 
 export const BoxShadowButton = styled(StyledButton)`
   padding: .5rem 1.2rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, .1);
   border-radius: 5px;
 `;
 
