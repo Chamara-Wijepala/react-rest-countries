@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { BorderButton } from "./Styles/Button.style";
+import StyledBorderCountries from "./Styles/BorderCountries.style";
 
 const CountryDetails = ({ country }) => {
   // Create a string of all the native names of the country
@@ -67,9 +68,9 @@ const CountryDetails = ({ country }) => {
 
       {/* Only renders if country borders other countries */}
       {country.borders.length > 0 &&
-        <div>
+        <StyledBorderCountries>
           <p className="BoldText">Border Countries: </p>
-          <ul>
+          <StyledBorderCountries>
             {country.borders.map((country, index) => (
               <Link key={index} to={`/${country.code}`} replace>
                 <BorderButton className="BorderLink">
@@ -77,8 +78,8 @@ const CountryDetails = ({ country }) => {
                 </BorderButton>
               </Link>
             ))}
-          </ul>
-        </div>
+          </StyledBorderCountries>
+        </StyledBorderCountries>
       }
     </>
   )
