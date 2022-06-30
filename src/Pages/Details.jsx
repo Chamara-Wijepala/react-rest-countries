@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { PulseLoader } from "react-spinners";
+import { BsArrowLeft } from 'react-icons/bs';
 
 import RenderCountryDetails from "../Components/RenderCountryDetails";
+import { BackButton } from "../Components/Styles/Button.style";
 
 const Details = ({ allCountries }) => {
   const { id } = useParams();
@@ -43,7 +45,7 @@ const Details = ({ allCountries }) => {
   return (
     <>
       <Link to={'/'}>
-        <button>Back</button>
+        <BackButton className="hi"><BsArrowLeft/> Back</BackButton>
       </Link>
       {isLoading
         ? <PulseLoader color="#36D7B7"/>

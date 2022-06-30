@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import { BorderButton } from "./Styles/Button.style";
+
 const CountryDetails = ({ country }) => {
   // Create a string of all the native names of the country
   const nativeNames = Object.values(country.name.nativeName)
@@ -70,9 +72,9 @@ const CountryDetails = ({ country }) => {
           <ul>
             {country.borders.map((country, index) => (
               <Link key={index} to={`/${country.code}`} replace>
-                <li className="BorderLink">
+                <BorderButton className="BorderLink">
                   {country.name}
-                </li>
+                </BorderButton>
               </Link>
             ))}
           </ul>
