@@ -7,7 +7,7 @@ import fetchCountries from "./Helpers/fetchCountries";
 import Header from "./Components/Header";
 import Home from "./Pages/Home";
 import Details from "./Pages/Details";
-import { GlobalStyles, lightTheme, darkTheme } from "./Components/Styles/Global";
+import { GlobalStyles, lightTheme, darkTheme } from "./Global.style";
 
 const App = () => {
   const [ allCountries, setAllCountries ] = useState([]);
