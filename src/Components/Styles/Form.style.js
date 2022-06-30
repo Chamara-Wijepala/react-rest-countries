@@ -4,6 +4,7 @@ const StyledForm = styled.form`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 2.4rem;
   padding-block: 2.4rem;
   
   .SearchInput {
@@ -15,6 +16,7 @@ const StyledForm = styled.form`
     padding: 1rem 2rem;
     border-radius: 5px;
     width: clamp(300px, 50vw, 500px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
 
     input {
       background-color: inherit;

@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { GoChevronDown } from "react-icons/go"
 
+import StyledDropdown from "./Styles/Dropdown.style";
+
 const Dropdown = ({ handleClick, options }) => {
   const [ isActive, setIsActive ] = useState(false);
   const [ selected, setSelected ] = useState('');
 
   return (
-    <div className="Dropdown">
+    <StyledDropdown>
 
       <div
         className="DropdownBtn"
@@ -36,7 +38,7 @@ const Dropdown = ({ handleClick, options }) => {
         </div>
       )}
 
-    </div>
+    </StyledDropdown>
   )
 }
 
