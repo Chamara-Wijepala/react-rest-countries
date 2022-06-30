@@ -4,6 +4,7 @@ const StyledCountryCard = styled.div`
   background-color: ${({ theme }) => theme.element};
   width: 312px;
   border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .1);
 
   .Flag {
     max-width: 100%;
