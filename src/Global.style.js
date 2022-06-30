@@ -4,7 +4,6 @@ export const lightTheme = {
   background: '#fafafa',
   text: '#111517',
   element: '#fff',
-  input: '#858585',
 };
 
 export const darkTheme = {
