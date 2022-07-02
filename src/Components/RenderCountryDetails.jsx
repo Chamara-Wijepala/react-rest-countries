@@ -11,6 +11,7 @@ const RenderCountryDetails = ({ country }) => {
       {/* Only renders if coat of arms exists */}
       {country.coatOfArms.svg !== "" &&
         <img
+          className="COA"
           src={country.coatOfArms.svg}
           alt={`Coat of arms of ${country.name.common}`}
         ></img>

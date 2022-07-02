@@ -13,6 +13,10 @@ export const StyledCountryDetails = styled.div`
     align-self: center;
     max-width: 100%;
   }
+
+  .COA {
+    height: 100%;
+  }
 `;
 
 export const Details = styled.div`
