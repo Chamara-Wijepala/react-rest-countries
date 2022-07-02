@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { BorderButton } from "./Styles/Button.style";
+import { Details, GeneralInfo } from "./Styles/DetailsPage.style";
 import StyledBorderCountries from "./Styles/BorderCountries.style";
 
 const CountryDetails = ({ country }) => {
@@ -26,45 +27,47 @@ const CountryDetails = ({ country }) => {
   const numberFormat = new Intl.NumberFormat('en-US');
 
   return (
-    <>
+    <Details>
       <h2>{country.name.common}</h2>
 
-      <div>
-        <p>
-          <span className="BoldText">Native Name: </span> {nativeNames}
-        </p>
-        <p>
-          <span className="BoldText">Population: </span>
-          {numberFormat.format(country.population)}
-        </p>
-        <p>
-          <span className="BoldText">Region: </span> {country.region}
-        </p>
-
-        {/* Only render if data is available */}
-        {country.subregion !== "" && 
+      <GeneralInfo>
+        <section>
           <p>
-            <span className="BoldText">Subregion: </span> {country.subregion}
+            <span className="BoldText">Native Name: </span> {nativeNames}
           </p>
-        }
-        {capital !== "" &&
           <p>
-            <span className="BoldText">Capital: </span> {capital}
+            <span className="BoldText">Population: </span>
+            {numberFormat.format(country.population)}
           </p>
-        }
-        {tld !== "" &&
           <p>
-            <span className="BoldText">Top Level Domain: </span> {tld}
+            <span className="BoldText">Region: </span> {country.region}
           </p>
-        }
-
-        <p>
-          <span className="BoldText">Currencies: </span> {currencies}
-        </p>
-        <p>
-          <span className="BoldText">Languages: </span> {languages}
-        </p>
-      </div>
+          {/* Only render if data is available */}
+          {country.subregion !== "" &&
+            <p>
+              <span className="BoldText">Subregion: </span> {country.subregion}
+            </p>
+          }
+          {capital !== "" &&
+            <p>
+              <span className="BoldText">Capital: </span> {capital}
+            </p>
+          }
+        </section>
+        <section>
+          {tld !== "" &&
+            <p>
+              <span className="BoldText">Top Level Domain: </span> {tld}
+            </p>
+          }
+          <p>
+            <span className="BoldText">Currencies: </span> {currencies}
+          </p>
+          <p>
+            <span className="BoldText">Languages: </span> {languages}
+          </p>
+        </section>
+      </GeneralInfo>
 
       {/* Only renders if country borders other countries */}
       {country.borders.length > 0 &&
@@ -81,7 +84,7 @@ const CountryDetails = ({ country }) => {
           </StyledBorderCountries>
         </StyledBorderCountries>
       }
-    </>
+    </Details>
   )
 }
 

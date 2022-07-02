@@ -15,3 +15,15 @@ export const StyledCountryDetails = styled.div`
     height: 100%;
   }
 `;
+
+export const Details = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`;
+
+export const GeneralInfo = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
