@@ -1,27 +1,23 @@
 import CountryDetails from "./CountryDetails";
+import { StyledCountryDetails } from "./Styles/DetailsPage.style";
 
 const RenderCountryDetails = ({ country }) => {
   return (
-    <div className="CountryDetails">
+    <StyledCountryDetails>
       <img
-        className="Flag"
         src={country.flags.svg}
         alt={`Flag of ${country.name.common}`}
       ></img>
-
       {/* Only renders if coat of arms exists */}
       {country.coatOfArms.svg !== "" &&
         <img
-          className="CoatOfArms"
           src={country.coatOfArms.svg}
           alt={`Coat of arms of ${country.name.common}`}
         ></img>
       }
 
-      <div className="Details">
-        <CountryDetails country={country}/>
-      </div>
-    </div>
+      <CountryDetails country={country}/>
+    </StyledCountryDetails>
   )
 }
 
