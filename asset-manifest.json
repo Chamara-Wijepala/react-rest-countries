@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/react-rest-countries/static/js/main.806bde6a.js",
+    "main.js": "/react-rest-countries/static/js/main.db5186c0.js",
     "index.html": "/react-rest-countries/index.html",
-    "main.806bde6a.js.map": "/react-rest-countries/static/js/main.806bde6a.js.map"
+    "main.db5186c0.js.map": "/react-rest-countries/static/js/main.db5186c0.js.map"
   },
   "entrypoints": [
-    "static/js/main.806bde6a.js"
+    "static/js/main.db5186c0.js"
   ]
 }
