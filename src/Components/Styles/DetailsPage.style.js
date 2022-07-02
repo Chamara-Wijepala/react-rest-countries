@@ -20,6 +20,7 @@ export const Details = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  justify-content: center;
 `;
 
 export const GeneralInfo = styled.div`
