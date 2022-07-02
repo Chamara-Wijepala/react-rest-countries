@@ -22,6 +22,11 @@ const StyledForm = styled.form`
       display: flex;
       justify-content: center;
       align-items: center;
+
+      svg {
+        width: 75%;
+        height: 75%;
+      }
     }
 
     input {
