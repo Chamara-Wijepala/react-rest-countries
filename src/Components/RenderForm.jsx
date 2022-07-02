@@ -16,9 +16,12 @@ const RenderForm = ({ state, handleChange, handleClick, handleSubmit }) => {
   return (
     <StyledForm onSubmit={handleSubmit}>
       <div className='SearchInput'>
-        <BiSearchAlt2/>
+        <label htmlFor="searchQuery">
+          <BiSearchAlt2/>
+        </label>
         <input
           name="searchQuery"
+          id="searchQuery"
           value={state.searchQuery}
           onChange={handleChange}
           type="text"
