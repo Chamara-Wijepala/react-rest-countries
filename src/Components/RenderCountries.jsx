@@ -12,7 +12,7 @@ const RenderCountries = ({ countries }) => {
     // tag which redirects to the country's specific details page
     <StyledCountryList>
       {countries.map((country, index) => (
-        <Link key={index} to={country.cca3}>
+        <Link key={index} to={`/${country.cca3}`} replace>
 
           <StyledCountryCard>
             <LazyLoadImage

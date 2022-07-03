@@ -44,7 +44,7 @@ const Details = ({ allCountries }) => {
 
   return (
     <>
-      <Link to={'/'}>
+      <Link to={'/'} replace>
         <BackButton className="hi"><BsArrowLeft/> Back</BackButton>
       </Link>
       {isLoading

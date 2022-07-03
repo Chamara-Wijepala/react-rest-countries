@@ -1,4 +1,4 @@
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes, HashRouter } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { PulseLoader } from "react-spinners";
 import { ThemeProvider } from "styled-components";
@@ -32,20 +32,20 @@ const App = () => {
     <>
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <GlobalStyles/>
-        <BrowserRouter>
+        <HashRouter>
           <Header toggleTheme={toggleTheme}/>
           <main>
             <div className="MainContentWrapper">
               {!isFetching
                 ? <Routes>
-                    <Route path="/" element={<Home {...{allCountries}}/>}></Route>
+                    <Route path="" element={<Home {...{allCountries}}/>}></Route>
                     <Route path="/:id" element={<Details {...{allCountries}}/>}></Route>
                   </Routes>
                 : <PulseLoader color="#36D7B7"/>
               }
             </div>
           </main>
-        </BrowserRouter>
+        </HashRouter>
       </ThemeProvider>
     </>
   );
